@@ -3,6 +3,7 @@ package com.devloper_haris.mc_assignment_002;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class gameScreen extends AppCompatActivity {
 //  3 String Nose []={  "م", "ن"};
 //  4 String Tongue []={  "ل", "ض"};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,26 @@ public class gameScreen extends AppCompatActivity {
 
         Text.setText(arabic[rand]);
     }
+
+    @Override
+    protected void onSaveInstanceState(final Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save the state of item position
+        outState.putString("value", arabic[rand]);
+//        outState.putString("value", "hel");
+
+    }
+    @Override
+    protected void onRestoreInstanceState(final Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        TextView Text = (TextView) findViewById(R.id.textView);
+        String myString=savedInstanceState.getString("value");
+        Text.setText(myString);
+
+    }
+
+
     public void nextQuestion(View v) {
         int temp=new Random().nextInt(28);
         rand=temp;

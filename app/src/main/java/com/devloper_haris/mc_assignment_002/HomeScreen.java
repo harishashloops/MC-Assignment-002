@@ -26,7 +26,7 @@ public class HomeScreen extends AppCompatActivity {
 //        TextView emailView = findViewById(R.id.emailView);
 //        emailView.setText(email);
     }
-    public void sendMessage(View view) {
+    public void gotoWebPage(View view) {
 //        Log.d("first log","hello");
 //        Intent intent = new Intent(this, HomeScreen.class);
 //        EditText editText = (EditText) findViewById(R.id.Name);
@@ -40,7 +40,7 @@ public class HomeScreen extends AppCompatActivity {
 //        startActivity(intent);
 
         //open web page
-        openWebPage("https://www.google.com/");
+        openWebPage("https://github.com/harishashloops/MC-Assignment-002");
 
     }
 

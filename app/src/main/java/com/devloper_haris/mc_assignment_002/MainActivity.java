@@ -7,11 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import java.net.URI;
 
 import static android.content.Intent.*;
+import static android.view.WindowManager.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+//        this.getWindow().setFlags(LayoutParams.FLAG_FULLSCREEN, LayoutParams.FLAG_FULLSCREEN);
+//        getSupportActionBar().hide();
     }
 
     public void sendMessage(View view) {

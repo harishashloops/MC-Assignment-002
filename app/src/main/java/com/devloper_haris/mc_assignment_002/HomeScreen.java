@@ -43,6 +43,10 @@ public class HomeScreen extends AppCompatActivity {
         openWebPage("https://github.com/harishashloops/MC-Assignment-002");
 
     }
+    public void startGame(View view) {
+        Intent intent = new Intent(this, gameScreen.class);
+        startActivity(intent);
+    }
 
     public void openWebPage(String url)
     {

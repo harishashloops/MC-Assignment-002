@@ -8,12 +8,16 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class gameScreen extends AppCompatActivity {
+    int count=3;
+    Button nextButton;
+    int right_answer=0;
     String [] arabic = {"أ", "ب",  "ت", "ث", "چ", "ح", "خ", "د", "ذ", "ر", "ز",  "س","ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ک", "ل", "م", "ن", "و", "ه", "ی"};
     int [] Ans=         {1,   2,    0,   0,    0,   1,   1,   0,    0,  0,    0,   0,   0,   0,    4,   0,  0,   1  , 1 ,   2,   0,   0,   4,   3,   3,    2,  1,   0,};
 
@@ -29,6 +33,7 @@ public class gameScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        nextButton=(Button) findViewById(R.id.button13);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
@@ -36,6 +41,7 @@ public class gameScreen extends AppCompatActivity {
 
         Text.setText(arabic[rand]);
     }
+//     nextButton.setOnClickListener(this);
 
     @Override
     protected void onSaveInstanceState(final Bundle outState) {
@@ -57,11 +63,24 @@ public class gameScreen extends AppCompatActivity {
 
 
     public void nextQuestion(View v) {
-        int temp=new Random().nextInt(28);
-        rand=temp;
-        TextView Text = (TextView) findViewById(R.id.textView);
-        Text.setText(arabic[temp]);
-        Text.setBackgroundColor(Color.parseColor("#ffffff"));
+        if (count==0)
+        {
+            count=3;
+            CustomDialogClass cdd=new CustomDialogClass(this,right_answer);
+            cdd.show();
+        }
+        else
+        {
+            count=count-1;
+            int temp=new Random().nextInt(28);
+            rand=temp;
+            TextView Text = (TextView) findViewById(R.id.textView);
+            Text.setText(arabic[temp]);
+            Text.setBackgroundColor(Color.parseColor("#ffffff"));
+        }
+//        R.id.TXT_Exit:
+
+
     }
     public void buttonPress1(View v) {
         TextView Text = (TextView) findViewById(R.id.textView);
@@ -77,6 +96,8 @@ public class gameScreen extends AppCompatActivity {
                 if(Ans[rand]==0)
                 {
                     Text.setBackgroundColor(Color.parseColor("#008000"));
+                    right_answer++;
+
 
                 }
                 else

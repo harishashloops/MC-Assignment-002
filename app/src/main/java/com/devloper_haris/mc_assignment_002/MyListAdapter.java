@@ -29,8 +29,8 @@ public class MyListAdapter extends ArrayAdapter<String> {
     }
 
     public View getView(int position,View view,ViewGroup parent) {
-        LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.mylist, null,true);
+        LayoutInflater inflater=context.getLayoutInflater(); //customized view bnany k liye inflator bnaty ha
+        View rowView=inflater.inflate(R.layout.mylist, null,true);  //inflator bna kar hm layout ko inflate karty ha
 
         TextView titleText = (TextView) rowView.findViewById(R.id.title);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);

@@ -1,18 +1,24 @@
 package com.devloper_haris.mc_assignment_002;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class gameScreen extends AppCompatActivity {
     int count=3;
@@ -36,12 +42,37 @@ public class gameScreen extends AppCompatActivity {
         nextButton=(Button) findViewById(R.id.button13);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(myToolbar);
+        myToolbar.setTitle("hello world");
 
         TextView Text = (TextView) findViewById(R.id.textView);
 
         Text.setText(arabic[rand]);
     }
-//     nextButton.setOnClickListener(this);
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu ) {
+
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected( @NonNull MenuItem item ) {
+
+        switch (item.getItemId()){
+            case R.id.action_Favorite:
+                Toast.makeText(this, "action_Favorite Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_Setting:
+                Toast.makeText(this, "action_Setting Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_Share:
+                Toast.makeText(this, "action_Share Clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onSaveInstanceState(final Bundle outState) {
@@ -62,7 +93,8 @@ public class gameScreen extends AppCompatActivity {
     }
 
 
-    public void nextQuestion(View v) {
+    public void nextQuestion() {
+
         if (count==0)
         {
             count=3;
@@ -82,7 +114,7 @@ public class gameScreen extends AppCompatActivity {
 
 
     }
-    public void buttonPress1(View v) {
+    public void buttonPress1(View v) throws InterruptedException {
         TextView Text = (TextView) findViewById(R.id.textView);
 //        TextView Text2 = (TextView) findViewById(R.id.textView2);
 //        TextView Text3 = (TextView) findViewById(R.id.textView3);
@@ -113,6 +145,7 @@ public class gameScreen extends AppCompatActivity {
                 if(Ans[rand]==4)
                 {
                     Text.setBackgroundColor(Color.parseColor("#008000"));
+                    right_answer++;
 
                 }
                 else
@@ -126,6 +159,7 @@ public class gameScreen extends AppCompatActivity {
                 if(Ans[rand]==2)
                 {
                     Text.setBackgroundColor(Color.parseColor("#008000"));
+                    right_answer++;
 
                 }
                 else
@@ -139,6 +173,7 @@ public class gameScreen extends AppCompatActivity {
                 if(Ans[rand]==1)
             {
                 Text.setBackgroundColor(Color.parseColor("#008000"));
+                right_answer++;
 
             }
                 else
@@ -152,6 +187,7 @@ public class gameScreen extends AppCompatActivity {
                 if(Ans[rand]==3)
                 {
                     Text.setBackgroundColor(Color.parseColor("#008000"));
+                    right_answer++;
 
                 }
                 else
@@ -162,6 +198,9 @@ public class gameScreen extends AppCompatActivity {
                 // i'm lazy, do nothing
                 break;
         }
+
+//        TimeUnit.SECONDS.sleep(5);
+
 //        random=new Random().nextInt(28) ;//[0, 27]
 //        Text.setBackgroundColor(Color.parseColor("#FFFFFF"));
 

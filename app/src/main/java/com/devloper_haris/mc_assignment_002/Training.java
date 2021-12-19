@@ -101,6 +101,14 @@ public class Training extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Place Your Fifth Option Code",Toast.LENGTH_SHORT).show();
             }
+            else if(position == 5) {
+
+                Toast.makeText(getApplicationContext(),"Place Your Sixth Option Code",Toast.LENGTH_SHORT).show();
+            }
+            else if(position == 6) {
+
+                Toast.makeText(getApplicationContext(),"Place Your Seventh Option Code",Toast.LENGTH_SHORT).show();
+            }
 
         });
     }

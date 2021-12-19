@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MCassignment002">
-        <activity android:name=".Training"></activity>
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Training">
+
+        </activity>
         <activity android:name=".gameScreen" />
         <activity android:name=".HomeScreen" />
         <activity android:name=".MainActivity">
